@@ -1,0 +1,113 @@
+.visually-hidden {
+    position: absolute !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    padding: 0 !important;
+    border: 0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden !important;
+}
+.home-body {
+    min-height: 254px;
+    text-align: center;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+#logo, header h1 {
+    grid-column: 1 /span 1;
+    grid-row: 1 /span 1;
+}
+#logo  {
+    z-index: 2;
+}
+header h1 {
+    display: none;
+}
+#navigation {
+    display: flex;
+    flex-flow: column-reverse;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+#navigation button {
+    order: 2;
+}
+#menu-list li {
+    display: flex;
+    padding: 0 7px;
+}
+[aria-expanded="true"] + #menu-list {
+    display: block;
+    background: #fff;
+    height: 100vh;
+}
+#menu-list {
+    order: 1;
+    list-style-type: none;
+    display: none;
+    flex-flow: column;
+}
+
+/**
+menu media queries
+**/
+@media screen and (max-width: 1000px) {
+    header {
+        position: relative;
+    }
+    #navigation {
+        position: absolute;
+        right: 0;
+        z-index: 3;
+    }
+}
+@media screen and (min-width: 1001px) {
+    #navigation {
+        display: flex !important;
+        flex-flow: row nowrap!important;
+        justify-content: flex-end!important;
+    }
+    #menu-list {
+        display: flex!important;
+        flex-flow: row wrap!important;
+        justify-content: flex-end!important;
+        height: unset !important;
+        background: transparent!important;
+    }
+
+[aria-controls="menu-list"] {
+    display: none!important;
+}
+}
+/**
+footer begin
+**/
+footer {
+    padding: 10% 25%;
+    background: #595959;
+    color: #eee;
+  }
+  footer p, footer a, footer a:visited{
+    color: #eee;
+    text-align: center;
+  }
+  footer a:hover {
+  color: #1D5E5E;
+  }
+  .site-title {
+    display: block;
+  }
+  @media only screen and (min-width: 900px) {
+    img.icon {
+      margin-bottom: -15px;
+  }
+  .site-title {
+    display: inline;
+  }
+  }
+  /**
+  footer end
+  **/

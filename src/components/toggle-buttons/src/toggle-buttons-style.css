@@ -1,0 +1,73 @@
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  width: 90%;
+  margin: 0 auto;
+}
+.container.two {
+  padding-top: 2%;
+  padding-bottom: 2%;
+  border-radius: 7px;
+  background: aliceblue;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  max-width: 50%;
+  box-shadow: 0 0 0 0.25rem #222;
+  border: 2px solid #fff;
+}
+@media only screen and (max-width: 768px) {
+  .container.two {
+    max-width: 90%;
+  }
+}
+
+.button-section {
+  max-width: calc(100% / 2);
+}
+button {
+  font-size: inherit;
+  border: 0.125rem solid transparent;
+  padding: 1rem 1.5rem;
+  border-radius: 0.25rem;
+  min-width: 150px;
+  background: #595959;
+  margin: 3% 5%;
+  color: #fff;
+}
+/**Icon styles**/
+
+.next > svg:first-of-type,
+.previous > svg:last-of-type,
+.send > svg:first-of-type {
+  display: none;
+}
+.svg-inline--fa {
+  padding-left: 7px;
+  padding-right: 7px;
+  margin-bottom: -2px;
+}
+.next > svg:last-of-type {
+  margin-bottom: -1px;
+}
+/**User interaction styles**/
+[aria-pressed] {
+  position: relative;
+  top: -0.25rem;
+  left: -0.25rem;
+  box-shadow: 0.125em 0.125em 0 #fff, 0.25em 0.25em #000;
+}
+[aria-pressed]:focus {
+  outline: 2px solid transparent;
+  box-shadow: 0 0 0 0.25rem #222;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  background: #595959;
+  transition: background-color ease-in-out 500ms, color ease-in 200ms,
+    border-color ease-in 200ms, box-shadow ease-in 200ms;
+}
+
+[aria-pressed="true"]:focus {
+  box-shadow: 0 0 0 0.25rem #222, inset 0 0 0 0.15rem #595959,
+    inset 0.25em 0.25em 0 #fff;
+  background-color: #006600;
+}

@@ -1,0 +1,169 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.empty-state, ul:empty {
+    display: none;
+}
+
+ul:empty + .empty-state {
+    display:block;
+}
+
+/*increase placeholder legibility*/
+
+::-webkit-input-placeholder{
+    color: #444;
+    font-style: italic;
+}
+::-moz-placeholder {
+    color: #444;
+    font-style: italic;
+}
+:-moz-placeholder {
+    color: #444;
+    font-style: italic;
+}
+:-ms-input-placeholder  {
+    color: #444;
+    font-style: italic;
+}
+
+/**visually hidden class**/
+
+
+.visually-hidden {
+    position: absolute !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    padding: 0 !important;
+    border: 0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden !important;
+}
+#heading-input {
+    border: transparent;
+    font-weight: 700;
+    font-size: 2.3em;
+    width: 100%;
+    min-width: 400px;
+    border-bottom: 2px solid black;
+}
+@keyframes cursor-blink {
+    0% {
+        opacity: 0;
+    }
+
+}
+.to-do-title + form {
+    position: relative;
+}
+span.place-cursor {
+    position: absolute;
+    top: 0;
+    left: 265px;
+    font-size: 2.3rem;
+    font-style: italic;
+    display: inline;
+    animation: cursor-blink 1.5s steps(2) infinite;
+}
+#heading-input:focus + span.place-cursor  {
+    color:transparent;
+    animation: none!important;
+}
+h1 {
+    padding: 0 2px;
+    color: #444;
+    font-weight: 700;
+    font-size: 2.3em;
+}
+form, h1{
+    min-height: 34px;
+    margin: 20px 0;
+}
+.list-items li {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+fieldset {
+    border: 2px solid;
+    margin-bottom: 5%;
+}
+.list-form {
+    max-width: 80%;
+    margin: 5% auto 0 auto;
+}
+/**hide outline when focussing on heading**/
+[tabindex="-1"]:focus {
+    outline: 2px solid blue;
+}
+button {
+    border-radius: 2px;
+    padding: 4px 7px;
+    font-size: 18px;
+    margin-left: 7px;
+}
+button:not(.trash) {
+    color: #fff;
+    background: #515252;
+    border: 1px solid #515252;
+}
+button:not(.trash):disabled, input[aria-invalid] + button:not(.trash){
+    color: #fff;
+    background: #515252;
+    border: 1px solid #515252;  
+}
+input[aria-invalid=false] + button:not(.trash) {
+    color: #fff;
+    background: #004794;
+    border: 1px solid #004794;
+}
+button.trash {
+    color: #fff;
+    background: #004794;
+    border: 1px solid #004794;
+}
+.to-do-title {
+    display: none;
+}
+.visible {
+    display: block !important;
+}
+label {
+    font-size: 18px;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+:checked + label {
+    text-decoration: line-through;
+}
+input[type="checkbox"]:not(:checked) {
+    background-color: #fff;
+    height: 18px;
+    width: 18px;
+    appearance: none;
+    border: 2px solid #000;
+    vertical-align: text-top;
+}
+input[type="checkbox"]:checked {
+    height: 18px;
+    width: 18px;
+    appearance: auto;
+    border: 2px solid #000;
+    vertical-align: text-top;
+}
+form.add-item-form {
+    padding-left: 44px;
+}
+#add-item-label {
+    font-size: 1.43em;
+    padding-left: 0;
+}
+input[type="text"] {
+    background-color: #fff;
+    border: 2px solid #000;
+    font-size: 18px;
+    line-height: 46.5px;
+    margin-top: 2.5px;
+    vertical-align: middle;
+    width: 300px;
+}

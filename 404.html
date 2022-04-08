@@ -26,29 +26,198 @@
     -->
     <title>RyanAllMad 404 error page</title>
     <style>
-        h1, h2 {
+    h1, h2 {
     color: #444;
-    font-family: 'Segoe UI,Tahoma,Geneva,Verdana,sans-serif';
+    font-family: "Segoe UI,Tahoma,Geneva,Verdana",sans-serif;
     font-weight: 700;
     padding: 0 2px;
-}
-h1 {
+    }
+    h1 {
     font-size: 2.3em;
-}
-h2 {
+    }
+    h2 {
     font-size: 1.9em;
+    }
+    #err {
+    text-align: center;
+    }
+    .visually-hidden {
+    position: absolute !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    padding: 0 !important;
+    border: 0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden !important;
 }
-#err {
-text-align: center;
+main {
+    min-height: 551px;
 }
-    </style>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+.home-body {
+    min-height: 254px;
+    text-align: center;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+#logo, header h1 {
+    grid-column: 1 /span 1;
+    grid-row: 1 /span 1;
+}
+#logo  {
+    z-index: 2;
+}
+header h1 {
+    display: none;
+}
+#navigation {
+    display: flex;
+    flex-flow: column-reverse;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+#navigation button {
+    order: 2;
+}
+#menu-list li {
+    display: flex;
+    padding: 7px 14px;
+    justify-content: flex-end;
+}
+#menu-list li a {
+    text-decoration: none;
+    color: #004794;
+}
+#menu-list li a:hover{
+    text-decoration: underline;
+}
+#menu-list li a:visited {
+    color: rgb(56, 54, 56);
+}
+[aria-expanded="true"] + #menu-list {
+    display: block;
+    background: #fff;
+    height: 100vh;
+    width: calc(100vw - 20px);
+    margin-top: 0;
+}
+#menu-list {
+    order: 1;
+    list-style-type: none;
+    display: none;
+    flex-flow: column;
+    font-size: 22px;
+    line-height: 1.76;
+}
+button[aria-controls="menu-list"]:not(.trash) {
+    border-color: #004794;
+    background-color: transparent;
+    margin: 7.5px;
+    color: #004794;
+    font-size: 23px;
+}
+button[aria-expanded="true"]:not(.trash) {
+    border-color: #fff;
+    background-color: #004794;
+    color: #fff;
+}
+/**
+menu media queries
+**/
+@media screen and (max-width: 1000px) {
+    header {
+        position: relative;
+    }
+    #navigation {
+        position: absolute;
+        right: 0;
+        z-index: 3;
+    }
+}
+@media screen and (min-width: 1001px) {
+    #navigation {
+        display: flex !important;
+        flex-flow: row nowrap!important;
+        justify-content: flex-end!important;
+    }
+    #menu-list {
+        display: flex!important;
+        flex-flow: row wrap!important;
+        justify-content: flex-end!important;
+        height: unset !important;
+        width: unset!important;
+        background: transparent!important;
+    }
+
+[aria-controls="menu-list"] {
+    display: none!important;
+}
+}
+/**
+footer begin
+**/
+footer {
+    padding: 10% 25%;
+    background: #595959;
+    color: #eee;
+  }
+  footer p, footer a, footer a:visited{
+    color: #eee;
+    text-align: center;
+  }
+  footer a:hover {
+  color: #1D5E5E;
+  }
+  .site-title {
+    display: block;
+  }
+  @media only screen and (min-width: 900px) {
+    img.icon {
+      margin-bottom: -15px;
+  }
+  .site-title {
+    display: inline;
+  }
+  }
+  /**
+  footer end
+  **/
+</style>
+</head>
+<body>
+<noscript>You need to enable JavaScript to run this app.</noscript>
+    <header>
+        <a href="#main" class="visually-hidden">Skip to content</a>
+    <a id="home-link" href="/portfolio/" title="to home">
+    <h1>Site Title</h1>
+    <img id="logo" src="newico.png" alt="pyramid AMD logo icon" height="80"></a>
+    <nav id="navigation" style="padding-bottom: 1rem;">
+        <button aria-expanded="false" aria-controls="menu-list">
+            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" class="svg-inline--fa fa-bars " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"></path>
+            </svg>
+            <span class="visually-hidden">Open Menu</span>
+        </button>
+        <ul id="menu-list">
+            <li><a href="/portfolio/">Home</a></li>
+            <li><a href="/portfolio/carousel">Carousel</a></li>
+            <li><a href="/portfolio/to-do-list">To Do List</a></li>
+            <li><a href="/portfolio/toggle-buttons">Toggle Buttons</a></li>
+        </ul>
+    </nav>
+    </header>
     <div id="err">
         <h1>Ooops looks like this route isn't loading</h1>
         <h2><a href="https://ryanallmad.github.io/portfolio/" title="to home">Go back to the main page</a> to navigate this App</h2>
     </div>
+    <footer>
+    <p>Copyright 2022 | By: Ryan @<a href="https://allmaddesigns.com/" title="to my website" target="_blank" rel="noreferrer">
+        <img class="icon" width="80" height="80" src="newico.png" alt="pyramid AMD logo icon">
+    <span class="site-title">All Mad Designs</span></a>
+    </p>
+    </footer>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
